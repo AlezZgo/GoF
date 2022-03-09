@@ -1,8 +1,10 @@
+import TryCatchExp.TryCatchTest
 import wrapper.Person
 import wrapper.PersonWrapper
 
 fun main() {
-    val wrapper = PersonWrapper(Person(1,"Mike","Brown"))
+    val str = TryCatchTest.foo()
 
-    println(wrapper.fullName())
+
 }
+
