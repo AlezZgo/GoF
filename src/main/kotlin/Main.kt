@@ -1,33 +1,17 @@
-import TryCatchExp.TryCatchTest
-import decorator.Good
-import decorator.MacBook
-import decorator.Smartphone
-import decorator.Total
-import wrapper.Person
-import wrapper.PersonWrapper
+import strategy.CarBookingStrategy
+import strategy.Customer
+import strategy.TrainBookingStrategy
 
-fun main() {
-    var good : Good = Good.Empty()
-    good = buyMacBook(good)
-    good = buySmartPhone(good)
-    good = finishShopping(good)
-    println(good.receipt())
+fun main(args: Array<String>) {
 
+    //CarBooking Strategy
+    val cust = Customer(CarBookingStrategy())
+    var fare = cust.calculateFare(5)
+    println(fare)
+
+    //TrainBooking Strategy
+    cust.bookingStrategy = TrainBookingStrategy()
+    fare = cust.calculateFare(5)
+    println(fare)
 }
-
-
-fun buyMacBook(good: Good): MacBook{
-    return MacBook(good)
-}
-
-
-fun buySmartPhone(good: Good): Smartphone{
-    return Smartphone(good)
-}
-
-
-fun finishShopping(good: Good): Good{
-    return Total(good)
-}
-
 
